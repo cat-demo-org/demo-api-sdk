@@ -1,0 +1,20 @@
+{
+    "name": "demo-sdk",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "pnpm exec esbuild --bundle src/index.ts --outdir=dist --sourcemap --platform=neutral --packages=external && tsc --emitDeclarationOnly"
+    },
+    "devDependencies": {
+        "esbuild": "^0.19.2",
+        "typescript": "^5.0.2"
+    },
+    "dependencies": {
+        "@types/node": "^20.5.9",
+        "axios": "^1.5.0",
+        "dotenv": "^16.3.1"
+    }
+}
