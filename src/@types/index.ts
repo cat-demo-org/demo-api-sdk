@@ -16,3 +16,4 @@ export interface ApiResponse<ApiResponseData> {
 /////////////////////////////////////
 export interface ApiGetParams {}
 export interface ApiPostParams {}
+export interface ApiResponseData {}
