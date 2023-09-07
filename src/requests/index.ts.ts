@@ -45,3 +45,14 @@ interface ApiResponseData_exampleUserPosts {
 export async function get_exampleUserPosts(getParams: ApiGetParams_exampleUserPosts): Promise<ApiResponse<ApiResponseData_exampleUserPosts>> {
     return await axiosGet("/exampleUserPosts", getParams);
 }
+
+// /exampleUserLogout
+interface ApiPostParams_exampleUserLogout extends ApiPostParams {}
+interface ApiResponseData_exampleUserLogout {
+    success: boolean
+}
+
+/**Log a user out by expiring tokens */
+export async function post_exampleUserLogout(postParams: ApiPostParams_exampleUserLogout): Promise<ApiResponse<ApiResponseData_exampleUserLogout>> {
+    return await axiosGet("/exampleUserLogout", postParams);
+}

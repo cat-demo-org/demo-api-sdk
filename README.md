@@ -6,21 +6,19 @@ As specified in [Standards For Web Applications]() -- The use for the *demo-api-
 
 ## API Functions
 
-Follow these guidelines when creating the API SDK
+Follow these guidelines when creating an API SDK
 
 **All API Functions should be categorized as needed within the 'requests' folder by name as follows:**
     
- - `<type>_<name>` => `post_userLogin.ts || get_userPosts.ts`
-
-Names are chosen to flatten the folder hierarchy and remove unneccessary nesting to aid in finding respective API calls quickly when debugging.
+ - `<type>_<name>` => `post_userLogin() || get_userPosts()`
 
 **All API Functions should return a body as follows for easy implementation:**
 
 ```
 export interface ApiResponse<ApiResponseData> {
-    code: number; // HTTP Response Code
-    data: ApiResponseData; // Typed Endpoint Specific Data
-    error: string; // Any error if present
+    code: number; // The HTTP Response code
+    data: ApiResponseData; // Typed endpoint-specific data
+    error: string; // Any error if present, else ""
     success: boolean; // If the request was successful
     timestampResponse: number; // Timestamp of request completion
     timestampRequest: number; // Timestamp of request initiation
@@ -37,4 +35,4 @@ export interface ApiResponseData_UserLogin {
 
 ApiResponseData should be the clearly typed return object for any given API endpoint that is
 
-*An example of this structure can be found in @types/index.d.ts -- Additional types should also go here*
+*An example of this structure can be found in src/@types/index.d.ts*
