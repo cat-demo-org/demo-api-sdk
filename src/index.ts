@@ -1,7 +1,6 @@
 import axios, { AxiosError } from "axios";
-import { ApiGetParams, ApiPostParams, ApiResponse } from "./@types/index.js";
 import * as requests from "./requests/index"
-
+import { ApiGetRequest, ApiPostRequest, ApiResponse } from "type-sharing";
 
 type RequestCollection = {
     [K in keyof typeof requests]: (params: Parameters<typeof requests[K]>[1]) => ReturnType<typeof requests[K]>
@@ -38,7 +37,7 @@ export class ApiSdk {
             data: data,
             error: error,
             success: success,
-            timestampRequest: Date.now(),
+            timestamp: Date.now(),
         };
     }
 
@@ -48,7 +47,7 @@ export class ApiSdk {
 
     async _axiosGet<ExpectedApiResponseData = never>(
         apiGetRoute: string,
-        getParams: ApiGetParams
+        getParams: ApiGetRequest
     ): Promise<ApiResponse<ExpectedApiResponseData>> {
         console.log(`GET_REQ: ${apiGetRoute}`, {
             requestRootUrl: this.requestRootUrl,
@@ -79,7 +78,7 @@ export class ApiSdk {
 
     async _axiosPost<ExpectedApiResponseData = never>(
         apiPostRoute: string,
-        postBody: ApiPostParams
+        postBody: ApiPostRequest
     ): Promise<ApiResponse<ExpectedApiResponseData>> {
         console.log(`POST_REQ: ${apiPostRoute}`, {
             requestRootUrl: this.requestRootUrl,
