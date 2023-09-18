@@ -6,7 +6,7 @@
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
-        "link-deps": "pnpm link ../type-sharing",
+        "link-deps": "pnpm link ../shared-types",
         "build": "pnpm exec esbuild --bundle src/index.ts --outdir=dist --sourcemap --platform=neutral --packages=external && tsc --emitDeclarationOnly",
         "dev": "pnpm build --watch"
     },
